@@ -38,7 +38,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
@@ -167,12 +166,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // Function to share memed image
     @IBAction func shareMemedImage(_ sender: Any) {
         let image = generateMemedImage()
-        let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+
+        let activity = UIActivityViewController(activityItems: [image, [UIActivityType.postToFacebook, UIActivityType.postToTwitter]], applicationActivities: nil)
         
         activity.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError)  in
             if (completed) {
                 self.save(memed: image)
-                //self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         

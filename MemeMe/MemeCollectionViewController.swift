@@ -19,8 +19,7 @@ class MemeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        memes = appDelegate.memes
+        newMemes()
         collectionView?.reloadData()
         
         // Calling setupFlowLayout function
@@ -29,6 +28,7 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        newMemes()
         collectionView?.reloadData()
 
         setupFlowLayout()
@@ -61,6 +61,11 @@ class MemeCollectionViewController: UICollectionViewController {
 
     }
     
+    // Function to show new memes
+    func newMemes() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        memes = appDelegate.memes
+    }
     
     // Function to set up flow layout
     func setupFlowLayout() {

@@ -84,7 +84,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="EMM-6K-Q2F">
                             <connections>
                                 <action selector="cancelAction:" destination="BYZ-38-t0r" id="fiO-Pd-xpy"/>
-                                <segue destination="g4j-sk-5Dg" kind="presentation" id="c32-wr-l0s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
